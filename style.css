@@ -1,0 +1,73 @@
+body {
+  background-color: #5D9DBA;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.bkg-wrapper {
+  background-color: #fff;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 56px 0;
+}
+
+header {
+  text-align: center;
+}
+header .service-title {
+  color: #1D6D92;
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+main {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 2fr 1fr;
+  margin: 0 auto;
+  max-width: 652px;
+  text-align: center;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-style {
+  background-color: #1D6D92;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  height: 40px;
+  margin-top: 16px;
+}
+
+.words-count {
+  margin-bottom: 56px;
+}
+
+.result-area p:first-child {
+  margin: 0;
+}
+.result-area p:last-child {
+  margin: 40px 0 10px;
+}
+.result-area .result-value {
+  color: #4BACB1;
+  margin: 0 auto;
+}
+.result-area .previous-result {
+  margin: 0 0 40px;
+}
+
+.font-size-60 {
+  font-size: 3.75rem;
+  margin: 0 auto;
+}
+
+.font-size-20 {
+  font-size: 1.25rem;
+}/*# sourceMappingURL=style.css.map */

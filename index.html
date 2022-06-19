@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word per minute checker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bkg-wrapper">
+    <header>
+      <h1 class="service-title">Word per minute checker</h1>
+    </header>
+    <main>
+      <div class="input-area">
+        <textarea name="english-text" id="english-text" cols="30" rows="10" class="input-text-area" placeholder="テキストを入力してください。"></textarea>
+        <button id="count-button" class="button-style">単語数を計測</button>
+        <p class="words-count"></p>
+        <p class="timer font-size-60">00:00</p>
+        <button id="start-button" class="button-style">タイマースタート</button>
+        <button id="end-button" class="button-style">タイマーストップ</button>
+        <button id="reset-button" class="button-style">タイマーリセット</button>
+      </div>
+      <div class="result-area">
+        <p class="font-size-20">あなたのスコアは</p>
+        <p class="result-value font-size-60">○○</p>
+        <p class="previous-result">
+          前回のスコア:○○
+        </p>
+        <p class="font-size-20">過去のスコア一覧</p>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+    </main>
+    <footer></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
