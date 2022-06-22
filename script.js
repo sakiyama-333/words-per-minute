@@ -78,19 +78,7 @@ stopBtn.addEventListener("mousedown",() => {
   // Elementを取得し、書き換える
   resultValue = document.querySelector(".result-value");
   resultValue.textContent = score;
-});
-
-// // リセットボタンをクリックした時の処理
-let nowTimeDate = 0;
-let scoreList = [];
-let storage = localStorage;
-resetBtn.addEventListener("mousedown",() => {
-  // 値をクリア
-  elapsedTime = 0;
-  timeToadd = 0;
-  timeFunction();
-  // TODO: textarea内の値も削除
-
+  
   // 今日の日時を取得
   const now = new Date();
   const year = now.getFullYear();
@@ -118,6 +106,19 @@ resetBtn.addEventListener("mousedown",() => {
   li.className = "pastScores";
   parentUl.appendChild(li);
   li.innerHTML = `${scoreItem.timeDate} => ${scoreItem.pastScore}`;
+});
+
+// // リセットボタンをクリックした時の処理
+let nowTimeDate = 0;
+let scoreList = [];
+let storage = localStorage;
+resetBtn.addEventListener("mousedown",() => {
+  // 値をクリア
+  elapsedTime = 0;
+  timeToadd = 0;
+  timeFunction();
+  wordsCount.innerHTML = '';
+  document.querySelector('#english-text').value = '';
 });
 
 // リロード時に過去のスコアを取得、表示
