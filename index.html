@@ -15,22 +15,21 @@
     </header>
     <main>
       <div class="input-area">
-        <textarea name="english-text" id="english-text" cols="30" rows="10" class="input-text-area" placeholder="テキストを入力してください。"></textarea>
+        <textarea name="english-text" id="english-text" cols="50" rows="20" class="input-text-area common-font-style" placeholder="テキストを入力してください。"></textarea>
         <p class="words-count"></p>
         <p class="timer font-size-60">00:00</p>
-        <button id="start-button" class="button-style">タイマースタート</button>
-        <button id="stop-button" class="button-style">タイマーストップ</button>
-        <button id="reset-button" class="button-style">タイマーリセット</button>
+      
+        <div class="operation-button">
+          <button id="start-button" class="start-button-style common-font-style">START</button>
+          <button id="reset-button" class="reset-button-style common-font-style">RESET</button>
+          <button id="stop-button" class="stop-button-style common-font-style">STOP</button>
+        </div>
       </div>
       <div class="result-area">
         <p class="font-size-20">あなたのスコアは</p>
         <p class="result-value font-size-60">000</p>
-        <p class="previous-result">
-          前回のスコア:000
-        </p>
         <p class="font-size-20">過去のスコア一覧</p>
         <ul id="parent-ul">
-          <li></li>
         </ul>
       </div>
     </main>

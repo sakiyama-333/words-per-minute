@@ -4,7 +4,7 @@
 // 必要なElementを取得
 const wordsCount = document.querySelector(".words-count");
 let getTextarea = document.querySelector("#english-text")
-// let englishTextCount;
+
 //----------------   単語数を調べる   ----------------
 
 getTextarea.addEventListener("input", () => {
@@ -74,7 +74,7 @@ stopBtn.addEventListener("mousedown",() => {
   timeToadd += Date.now() - startTime;
   //----------------   スコアを更新   ----------------
   let timeTaken = parseInt(minutes) * 60 + parseInt(seconds);
-  score = Math.round((englishTextCount / timeTaken) * 60);
+  score = Math.round((getTextarea / timeTaken) * 60);
   // Elementを取得し、書き換える
   resultValue = document.querySelector(".result-value");
   resultValue.textContent = score;
@@ -115,6 +115,7 @@ resetBtn.addEventListener("mousedown",() => {
   storage.item = JSON.stringify(scoreList);
   const parentUl = document.querySelector("#parent-ul");
   const li = document.createElement("li");
+  li.className = "pastScores";
   parentUl.appendChild(li);
   li.innerHTML = `${scoreItem.timeDate} => ${scoreItem.pastScore}`;
 });

@@ -3,12 +3,14 @@ body {
   font-family: 'Roboto', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.05em;
 }
+
 .bkg-wrapper {
   background-color: #fff;
-  margin: 0 auto;
+  margin: 56px auto 0;
   max-width: 80%;
   padding: 56px 0;
 }
+
 header {
   text-align: center;
   & .service-title {
@@ -17,32 +19,67 @@ header {
     padding-bottom: 40px;
   }
 }
+
 main {
   display: grid;
-  gap: 20px;
+  gap: 80px;
   grid-template-columns: 2fr 1fr;
   margin: 0 auto;
-  max-width: 652px;
+  max-width: 812px;
   text-align: center;
 }
+
 .input-area {
   display: flex;
   flex-direction: column;
 }
-
-.button-style {
-  background-color: #1D6D92;
-  border: 0;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  height: 40px;
-  margin-top: 16px;
+.operation-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  & .start-button-style {
+    background-color: #34787B;
+    border: 0;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    height: 80px;
+    width: 80px;
+    margin-top: 16px;
+  }
+  
+  & .reset-button-style {
+    background-color: #C9E6E7;
+    border: 0;
+    border-radius: 50px;
+    color: #1D6D92;
+    font-size: 16px;
+    font-weight: 700;
+    height: 70px;
+    width: 70px;
+    margin-top: 16px;
+  }
+  
+  & .stop-button-style {
+    background-color: #81C4C8;
+    border: 0;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    height: 80px;
+    width: 80px;
+    margin-top: 16px;
+  }
 }
+
+
 .words-count {
   margin-bottom: 56px;
 }
+
 .result-area {
   p:first-child {
     margin: 0;
@@ -52,10 +89,17 @@ main {
   }
   & .result-value {
     color: #4BACB1;
-    margin: 0 auto;
+    margin: 16px auto 0;
   }
   & .previous-result {
     margin: 0 0 40px;
+  }
+  & #parent-ul {
+    list-style: none;
+    padding: 0;
+    & .pastScores {
+      padding-bottom: 12px;
+    }
   }
 }
 
@@ -67,4 +111,11 @@ main {
 
 .font-size-20 {
   font-size: 1.25rem;
+}
+
+
+.common-font-style {
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: 0.05em;
 }
