@@ -2,20 +2,19 @@
 // 単語数÷秒数×60秒
 
 // 必要なElementを取得
-const countBtn = document.querySelector("#count-button");
 const wordsCount = document.querySelector(".words-count");
-let englishTextCount;
+let getTextarea = document.querySelector("#english-text")
+// let englishTextCount;
 //----------------   単語数を調べる   ----------------
 
-function countBtnClick() {
-  // 空白文字で区切って配列に単語を格納。単語数を調べる
-  englishTextCount = document
+getTextarea.addEventListener("input", () => {
+    // 空白文字で区切って配列に単語を格納。単語数を調べる
+    getTextarea = document
     .querySelector("#english-text")
     .value.split(" ").length;
-  // 単語数を表示
-  wordsCount.innerHTML = `単語数: ${englishTextCount}`;
-}
-countBtn.addEventListener("click", countBtnClick);
+    // 単語数を表示
+  wordsCount.innerHTML = `単語数: ${getTextarea}`;
+});
 
 //----------------   タイマー機能   ----------------
 
@@ -62,7 +61,7 @@ function countUp() {
 }
 
 // スタートボタンを押した時の処理
-startBtn.addEventListener("mousedown", function () {
+startBtn.addEventListener("mousedown", () => {
   startTime = Date.now();
   countUp();
 });
@@ -70,7 +69,7 @@ startBtn.addEventListener("mousedown", function () {
 // ストップボタンを押した時の処理
 let resultValue;
 let score;
-stopBtn.addEventListener("mousedown", function () {
+stopBtn.addEventListener("mousedown",() => {
   clearTimeout(timerId);
   timeToadd += Date.now() - startTime;
   //----------------   スコアを更新   ----------------
@@ -85,7 +84,7 @@ stopBtn.addEventListener("mousedown", function () {
 let nowTimeDate = 0;
 let scoreList = [];
 let storage = localStorage;
-resetBtn.addEventListener("mousedown", function () {
+resetBtn.addEventListener("mousedown",() => {
   // 値をクリア
   elapsedTime = 0;
   timeToadd = 0;
