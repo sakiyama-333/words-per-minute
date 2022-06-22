@@ -40,8 +40,6 @@ const timerElement = document.querySelector(".timer");
 
 // ミリ秒から分・秒に変換する関数
 function timeFunction() {
-  // let minutes = Math.floor(elapsedTime / 60000);
-  // let seconds = Math.floor((elapsedTime % 60000) / 1000);
   minutes = Math.floor(elapsedTime / 60000);
   seconds = Math.floor((elapsedTime % 60000) / 1000);
 
@@ -70,20 +68,71 @@ startBtn.addEventListener("mousedown", function () {
 });
 
 // ストップボタンを押した時の処理
+let resultValue;
+let score;
 stopBtn.addEventListener("mousedown", function () {
   clearTimeout(timerId);
   timeToadd += Date.now() - startTime;
   //----------------   スコアを更新   ----------------
-  let timeTaken = (parseInt(minutes) * 60) + parseInt(seconds)
-  let score = Math.round((englishTextCount / timeTaken) * 60)
+  let timeTaken = parseInt(minutes) * 60 + parseInt(seconds);
+  score = Math.round((englishTextCount / timeTaken) * 60);
   // Elementを取得し、書き換える
-  const resultValue = document.querySelector('.result-value')
+  resultValue = document.querySelector(".result-value");
   resultValue.textContent = score;
 });
 
 // // リセットボタンをクリックした時の処理
+let nowTimeDate = 0;
+let scoreList = [];
+let storage = localStorage;
 resetBtn.addEventListener("mousedown", function () {
+  // 値をクリア
   elapsedTime = 0;
   timeToadd = 0;
   timeFunction();
+  // TODO: textarea内の値も削除
+
+  // 今日の日時を取得
+  const now = new Date();
+  const year = now.getFullYear();
+  const Month = now.getMonth() + 1;
+  const day = now.getDate();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  // 時間・分が一桁だったら、先頭に0を付ける
+  if (hour < 10 && minute < 10) {
+    nowTimeDate = `${year}/${Month}/${day} 0${hour}:0${minute}`;
+  } else if (minute < 10) {
+    nowTimeDate = `${year}/${Month}/${day} ${hour}:0${minute}`;
+  } else {
+    nowTimeDate = `${year}/${Month}/${day} ${hour}:${minute}`;
+  }
+
+  const scoreItem = {
+    timeDate: nowTimeDate,
+    pastScore: score,
+  };
+  scoreList.push(scoreItem);
+  storage.item = JSON.stringify(scoreList);
+  const parentUl = document.querySelector("#parent-ul");
+  const li = document.createElement("li");
+  parentUl.appendChild(li);
+  li.innerHTML = `${scoreItem.timeDate} => ${scoreItem.pastScore}`;
+});
+
+// リロード時に過去のスコアを取得、表示
+document.addEventListener("DOMContentLoaded", () => {
+  const json = storage.item;
+  if (json === undefined) {
+    return;
+  }
+  scoreList = JSON.parse(json);
+
+  for (const items of scoreList) {
+    const li = document.createElement("li");
+    li.className = "pastScores";
+    const parentUl = document.querySelector("#parent-ul");
+    parentUl.appendChild(li);
+    li.innerHTML = `${items.timeDate} => ${items.pastScore}`;
+  }
 });
