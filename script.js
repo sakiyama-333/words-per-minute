@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
   scoreList = JSON.parse(json);
-
   for (const items of scoreList) {
     const li = document.createElement("li");
     li.className = "pastScores";
